@@ -1,0 +1,77 @@
+asttokens==2.4.1
+attrs @ file:///C:/b/abs_89hmquz5ga/croot/attrs_1734533130810/work
+beautifulsoup4 @ file:///C:/b/abs_d5wytg_p0w/croot/beautifulsoup4-split_1718029833749/work
+bleach @ file:///C:/b/abs_925i9psm3u/croot/bleach_1732292896852/work
+blinker==1.9.0
+click==8.2.1
+colorama==0.4.6
+comm==0.2.2
+contourpy==1.3.1
+cycler==0.12.1
+debugpy==1.8.5
+decorator==5.1.1
+defusedxml @ file:///tmp/build/80754af9/defusedxml_1615228127516/work
+exceptiongroup==1.2.2
+executing==2.0.1
+fastjsonschema @ file:///C:/b/abs_4ev90296ly/croot/python-fastjsonschema_1731939386416/work
+Flask==3.1.1
+fonttools==4.56.0
+ipykernel==6.29.5
+ipython==8.26.0
+ipywidgets==8.1.7
+itsdangerous==2.2.0
+jedi==0.19.1
+Jinja2 @ file:///C:/b/abs_10zs3i4lof/croot/jinja2_1737760123028/work
+joblib==1.4.2
+jsonschema @ file:///C:/b/abs_394_t6__xq/croot/jsonschema_1728486718320/work
+jsonschema-specifications @ file:///C:/b/abs_0brvm6vryw/croot/jsonschema-specifications_1699032417323/work
+jupyter_client==8.6.2
+jupyter_core==5.7.2
+jupyterlab-pygments @ file:///C:/b/abs_90gcngw1hg/croot/jupyterlab_pygments_1700168630077/work
+jupyterlab_widgets==3.0.15
+kiwisolver==1.4.8
+MarkupSafe @ file:///C:/b/abs_a0ma7ge0jc/croot/markupsafe_1738584052792/work
+matplotlib==3.10.1
+matplotlib-inline==0.1.7
+mistune @ file:///C:/Users/BUILDE~1/AppData/Local/Temp/abs_081kimkskf/croots/recipe/mistune_1661496225923/work
+narwhals==1.41.0
+nbclient @ file:///C:/b/abs_cal0q5fyju/croot/nbclient_1698934263135/work
+nbconvert @ file:///C:/b/abs_ac6qnzi3no/croot/nbconvert_1728050663985/work
+nbformat @ file:///C:/b/abs_c2jkw46etm/croot/nbformat_1728050303821/work
+nest-asyncio==1.6.0
+numpy==2.2.3
+packaging==24.1
+pandas==2.2.3
+pandocfilters @ file:///opt/conda/conda-bld/pandocfilters_1643405455980/work
+parso==0.8.4
+pillow==11.1.0
+platformdirs==4.2.2
+plotly==6.1.2
+prompt_toolkit==3.0.47
+psutil==6.0.0
+pure_eval==0.2.3
+pydotplus==2.0.2
+Pygments==2.18.0
+pyparsing==3.2.1
+python-dateutil==2.9.0.post0
+pytz==2025.1
+pywin32==306
+pyzmq==26.1.0
+referencing @ file:///C:/b/abs_09f4hj6adf/croot/referencing_1699012097448/work
+rpds-py @ file:///C:/b/abs_0c6z5kcdb6/croot/rpds-py_1736545465023/work
+scikit-learn==1.6.1
+scipy==1.15.2
+seaborn==0.13.2
+six==1.16.0
+soupsieve @ file:///C:/b/abs_bbsvy9t4pl/croot/soupsieve_1696347611357/work
+stack-data==0.6.3
+threadpoolctl==3.5.0
+tinycss2 @ file:///C:/b/abs_df38owi5ma/croot/tinycss2_1738337725183/work
+tornado==6.4.1
+traitlets==5.14.3
+typing_extensions==4.12.2
+tzdata==2025.1
+wcwidth==0.2.13
+webencodings==0.5.1
+Werkzeug==3.1.3
+widgetsnbextension==4.0.14

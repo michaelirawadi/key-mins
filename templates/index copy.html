@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>KMeans Clustering App</title>
+    <link rel="stylesheet" href="/static/index-style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">KMeans Clustering from Scratch</h1>
+
+      <!-- Download Template Button -->
+      <form method="GET" action="/template" class="form download-form">
+        <button type="submit" class="button">Download Template</button>
+      </form>
+
+      <form
+        method="POST"
+        enctype="multipart/form-data"
+        class="form upload-form"
+      >
+        <label for="file" class="label">Upload CSV:</label>
+        <input type="file" name="file" accept=".csv" required class="input" />
+
+        <label for="k" class="label">Number of Clusters (k):</label>
+        <input
+          type="number"
+          name="k"
+          value="3"
+          min="1"
+          required
+          class="input"
+        />
+
+        <button type="submit" class="button">Cluster</button>
+      </form>
+
+      {% if plot_url %}
+      <div class="plot-section">
+        <h2 class="subtitle">Cluster Plot:</h2>
+        <img
+          src="{{ url_for('result_file', filename='plot.png') }}?v={{ plot_url.split('=')[-1] }}"
+          alt="KMeans Plot"
+          class="plot-img"
+        />
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>

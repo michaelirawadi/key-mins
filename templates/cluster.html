@@ -1,0 +1,114 @@
+{% extends "base.html" %} {% block title %}KMeans Clustering - OTw{% endblock %}
+{% block content %}
+<div class="cluster-page">
+  <div class="container">
+    <div class="page-header">
+      <h1>KMeans Clustering Analysis</h1>
+      <p>Advanced data clustering for wine quality analysis</p>
+    </div>
+
+    <div class="cluster-grid">
+      <!-- Upload Section -->
+      <div class="card">
+        <div class="card-header primary">
+          <i class="fas fa-upload"></i>
+          <h3>Data Upload</h3>
+        </div>
+        <div class="card-content">
+          <div class="download-section">
+            <form method="GET" action="/template">
+              <button type="submit" class="btn btn-outline">
+                <i class="fas fa-download"></i>
+                Download Template
+              </button>
+            </form>
+          </div>
+
+          <form method="POST" enctype="multipart/form-data" class="upload-form">
+            <div class="form-group">
+              <label for="file" class="form-label">Upload CSV File:</label>
+              <input
+                type="file"
+                name="file"
+                id="file"
+                accept=".csv"
+                required
+                class="form-input"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="k" class="form-label">Number of Clusters (k):</label>
+              <input
+                type="number"
+                name="k"
+                id="k"
+                value="3"
+                min="1"
+                required
+                class="form-input"
+              />
+            </div>
+
+            <button type="submit" class="btn btn-primary full-width">
+              <i class="fas fa-chart-bar"></i>
+              Run Clustering
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Results Section -->
+      <div class="card">
+        <div class="card-header secondary">
+          <i class="fas fa-chart-bar"></i>
+          <h3>Cluster Results</h3>
+        </div>
+        <div class="card-content">
+          {% if plot_url %}
+          <div class="results-section">
+            <h4>Cluster Visualization:</h4>
+            <div class="plot-container">
+              <img
+                src="{{ url_for('result_file', filename='plot.png') }}?v={{ plot_url.split('=')[-1] }}"
+                alt="KMeans Clustering Plot"
+                class="plot-image"
+              />
+            </div>
+            <div class="results-info">
+              <p>
+                <i class="fas fa-check"></i> Clustering completed successfully
+              </p>
+              <p><i class="fas fa-check"></i> Clusters identified</p>
+              <p><i class="fas fa-check"></i> Data points classified</p>
+            </div>
+          </div>
+          {% else %}
+          <div class="empty-results">
+            <i class="fas fa-chart-bar"></i>
+            <p class="empty-title">Upload data to see clustering results</p>
+            <p class="empty-subtitle">
+              Your cluster visualization will appear here
+            </p>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Info Section -->
+    <div class="card info-card">
+      <div class="card-content">
+        <h3>About KMeans Clustering</h3>
+        <p>
+          KMeans clustering is a powerful unsupervised machine learning
+          algorithm used to group similar data points together. In wine
+          analysis, this can help identify patterns in wine characteristics,
+          quality metrics, and customer preferences. Upload your wine data in
+          CSV format to discover hidden patterns and insights.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

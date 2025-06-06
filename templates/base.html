@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}OTw - Premium Wine Collection{% endblock %}</title>
+    <!-- href="{{ url_for('static', filename='css/style.css') }}" -->
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-content">
+          <a href="{{ url_for('home') }}" class="nav-logo">
+            <div class="logo-icon">
+              <i class="fas fa-wine-bottle"></i>
+            </div>
+            <!-- <img src="/static/assets/logo.png" alt="" /> -->
+            <span class="logo-text">OTw</span>
+          </a>
+
+          <div class="nav-links">
+            <a
+              href="{{ url_for('home') }}"
+              class="nav-link {% if request.endpoint == 'home' %}active{% endif %}"
+              >Home</a
+            >
+            <a
+              href="{{ url_for('cluster') }}"
+              class="nav-link {% if request.endpoint == 'cluster' %}active{% endif %}"
+              >Cluster</a
+            >
+          </div>
+
+          <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars" id="menu-icon"></i>
+          </button>
+        </div>
+
+        <div class="mobile-nav" id="mobile-nav">
+          <a
+            href="{{ url_for('home') }}"
+            class="mobile-nav-link {% if request.endpoint == 'home' %}active{% endif %}"
+            >Home</a
+          >
+          <a
+            href="{{ url_for('cluster') }}"
+            class="mobile-nav-link {% if request.endpoint == 'cluster' %}active{% endif %}"
+            >Cluster</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>{% block content %}{% endblock %}</main>
+
+    <!-- <script src="{{ url_for('static', filename='js/script.js') }}"></script> -->
+    <script src="/static/js/script.js"></script>
+  </body>
+</html>
