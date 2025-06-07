@@ -4,8 +4,11 @@ import numpy as np
 import pandas as pd
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory
 from sklearn.preprocessing import LabelEncoder, StandardScaler
+from sklearn.metrics import silhouette_score
+import matplotlib
+matplotlib.use('Agg')  
 import matplotlib.pyplot as plt
-from ml.kmeans import KMeans
+from ml.kmeans import KMeans, rmse
 from ml.data_preprocessing import preprocess
 
 UPLOAD_FOLDER = 'uploads'
@@ -37,6 +40,11 @@ def cluster():
             model.fit(data)
             labels = model.predict(data)
 
+            if k > 1 and data.shape[1] >= 2 and len(set(labels)) > 1:
+                silhouette = silhouette_score(data, labels)
+            else:
+                silhouette = None 
+
             if data.shape[1] >= 2:
                 plt.figure()
                 for cluster_id in range(k):
@@ -52,11 +60,11 @@ def cluster():
                 plt.savefig(plot_path)
                 plt.close()
 
-                return render_template("cluster.html", plot_url=f"plot.png?v={int(time.time())}")
+                return render_template("cluster.html", plot_url=f"plot.png?v={int(time.time())}", silhouette=silhouette)
 
             return "Plotting requires at least 2 features"
 
-    return render_template("cluster.html", plot_url=None)
+    return render_template("cluster.html", plot_url=None, silhouette=None)
 
 @app.route('/result/<filename>')
 def result_file(filename):

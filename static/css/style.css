@@ -242,6 +242,17 @@ body {
   font-size: 1rem;
 }
 
+.btn-download {
+  background-color: var(--primary-color);
+  color: var(--primary-color) !important;
+}
+
+.btn-download:hover {
+  /* background-color: var(--primary-color) !important; */
+  /* color: var(--white) !important; */
+  transform: translateY(-1px) !important;
+}
+
 .btn-primary {
   background-color: var(--secondary-color);
   color: var(--primary-color);

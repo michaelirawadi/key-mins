@@ -25,3 +25,13 @@ class KMeans:
 
     def predict(self, data):
         return self._assign_clusters(data)
+
+
+def rmse(data, labels, centroids):
+    mse = 0
+    n_samples = data.shape[0]
+    for i in range(len(centroids)):
+        cluster_points = data[labels == i]
+        mse += np.sum((cluster_points - centroids[i]) ** 2)
+    mse /= n_samples
+    return np.sqrt(mse)
