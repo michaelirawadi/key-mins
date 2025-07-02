@@ -680,3 +680,31 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary-dark);
 }
+
+.cluster-summary {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+.cluster-summary th,
+.cluster-summary td {
+  border: 1px solid #e0e0e0;
+  padding: 8px 12px;
+  text-align: center;
+}
+
+.cluster-summary th {
+  background-color: #f8f8f8;
+  font-weight: 600;
+}
+
+.cluster-summary tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.cluster-summary tr:hover {
+  background-color: #f0f0f0;
+}
