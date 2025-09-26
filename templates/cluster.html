@@ -3,8 +3,8 @@ endblock %} {% block content %}
 <div class="cluster-page">
   <div class="container">
     <div class="page-header">
-      <h1>KMeans Clustering Analysis</h1>
-      <p>Advanced data clustering for data analysis</p>
+      <h1>K-Means Clustering Analysis</h1>
+      <p>Advanced data clustering for consumer data analysis</p>
     </div>
 
     <div class="cluster-grid">
@@ -55,7 +55,8 @@ endblock %} {% block content %}
               <label for="x_column" class="form-label">Select X Column for Plotting:</label>
               <select name="x_column" id="x_column" class="form-input">
                 {% for col in columns %}
-                <option value="{{ col }}" {% if loop.index0 == 0 %}selected{% endif %}>{{ col }}</option>
+                <!-- <option value="{{ col }}" {% if loop.index0 == 0 %}selected{% endif %}>{{ col }}</option> -->
+                <option value="{{ col }}" {% if col == selected_x %}selected{% endif %}>{{ col }}
                 {% endfor %}
               </select>
             </div>
@@ -64,7 +65,7 @@ endblock %} {% block content %}
               <label for="y_column" class="form-label">Select Y Column for Plotting:</label>
               <select name="y_column" id="y_column" class="form-input">
                 {% for col in columns %}
-                <option value="{{ col }}" {% if loop.index0 == 1 %}selected{% endif %}>{{ col }}</option>
+                <option value="{{ col }}" {% if col == selected_y %}selected{% endif %}>{{ col }}</option>
                 {% endfor %}
               </select>
             </div>
@@ -73,7 +74,7 @@ endblock %} {% block content %}
               <label for="z_column" class="form-label">Select Z Column for Plotting:</label>
               <select name="z_column" id="z_column" class="form-input">
                 {% for col in columns %}
-                <option value="{{ col }}" {% if loop.index0 == 2 %}selected{% endif %}>{{ col }}</option>
+                <option value="{{ col }}" {% if col == selected_z %}selected{% endif %}>{{ col }}</option>
                 {% endfor %}
               </select>
             </div>
@@ -100,6 +101,27 @@ endblock %} {% block content %}
                 {{ plot_html | safe }}
               </div>
             </div>
+            <div class="results-info">
+              <p>
+                <i class="fas fa-check"></i> Clustering completed successfully
+              </p>
+              <p><i class="fas fa-check"></i> Clusters identified</p>
+              <p><i class="fas fa-check"></i> Data points classified</p>
+              {% if silhouette is not none %}
+              <p>
+                <i class="fas fa-chart-line"></i> Silhouette Score: {{
+                silhouette | round(4) }}
+              </p>
+              {% endif %}
+            </div>
+          {% else %}
+          <div class="empty-results">
+            <i class="fas fa-chart-bar"></i>
+            <p class="empty-title">Upload data to see clustering results</p>
+            <p class="empty-subtitle">
+              Your cluster visualization will appear here
+            </p>
+          </div>
           {% endif %}
           <!-- {% if plot_url %}
           <div class="results-section">

@@ -56,8 +56,9 @@ def cluster():
         df = pd.read_csv(path)
         # column_names = df.columns.tolist()
 
-        numeric_columns = df.select_dtypes(include=[np.number]).columns.tolist()
-        df = df[numeric_columns]
+        # numeric_columns = df.select_dtypes(include=[np.number]).columns.tolist()
+        # df = df[numeric_columns]
+        df = df.select_dtypes(include=[np.number])
         column_names = df.columns.tolist()
         df = df[:1000] 
 
@@ -141,7 +142,10 @@ def cluster():
                                 silhouette=silhouette,
                                 columns=column_names,
                                 current_file=current_file,
-                                cluster_summary=cluster_summary_html)
+                                cluster_summary=cluster_summary_html,
+                                selected_x=x_column,
+                                selected_y=y_column,
+                                selected_z=z_column)
         else:
             return "Plotting requires valid x, y and z columns"
 
